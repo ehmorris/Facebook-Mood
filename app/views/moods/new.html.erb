@@ -4,5 +4,6 @@ You were on facebook for <%= @mood.duration %> seconds, how are you feeling?
 
 <%= form_for @mood do |f| %>
   <%= f.select(:label, Mood::OPTIONS) %>
+  <%= f.hidden_field :duration, :value => @mood.duration %>
   <%= f.submit 'Submit' %>
 <% end %>
