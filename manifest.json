@@ -4,14 +4,9 @@
   "description": "Analyzes how you react to facebook on average",
   "homepage_url": "http://fbhappiness-app.herokuapp.com/",
   "manifest_version": 2,
-  "icons": {  "16": "icon-16.png",
-              "48": "icon-48.png",
-             "128": "icon-128.png" },
   "background": {
-    "persistent": false,
+    "persistent": true,
     "scripts": ["background.js"]
   },
-  "browser_action": {
-    "default_title": "happiness"
-  }
+  "permissions": ["tabs"]
 }
