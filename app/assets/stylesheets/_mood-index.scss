@@ -6,13 +6,13 @@ section.moods {
   .intro-explain {
     line-height: 1.4em;
     margin: auto;
-    margin-bottom: 4em;
+    margin-bottom: 4rem;
+    font-size: 120%;
     max-width: 400px;
   }
 
   .mood {
-    font-family: "omnes-pro", sans-serif;
-    font-weight: 400;
+    color: darken($titling-color, 10%);
     margin-bottom: 6em;
 
     .meta, .herald {
@@ -50,7 +50,9 @@ section.moods {
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .8);
         color: rgba(255, 255, 255, .8);
         display: table-cell;
+        font-family: "omnes-pro", sans-serif;
         font-size: 80%;
+        font-weight: 400;
         height: 70px;
         opacity: .2;
         overflow: hidden;

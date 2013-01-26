@@ -22,7 +22,7 @@
 
   <% @moods.each do |mood| %>
     <div class="mood">
-      <span class="meta">on <%= mood.created_at.strftime("%b %d, %Y at %I:%M%p") %>, you'd spent <%= mood.duration %> on facebook</span>
+      <span class="meta">on <%= mood.created_at.strftime("%b %d, %Y at %I:%M%p") %>, you'd spent <%= "%.2f" % (mood.duration.to_f / 60) %> minutes on facebook</span>
       <span class="herald">You felt</span>
       <figure class="<%= mood.label %>">
         <% Mood::OPTIONS.each do |mood_option| %>
