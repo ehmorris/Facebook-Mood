@@ -2,7 +2,7 @@
   "name": "Facebook Mood",
   "version": "1.0.2",
   "description": "Analyzes how you react to facebook on average",
-  "homepage_url": "http://fbhappiness-app.herokuapp.com/",
+  "homepage_url": "http://fbmood.herokuapp.com",
   "manifest_version": 2,
   "icons": {
     "16":  "icon-16.png",
