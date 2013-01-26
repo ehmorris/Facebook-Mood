@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Facebook Happiness",
+  "description": "Chrome extension for analyzing how you react to facebook on average",
+  "version": "0.1",
+
+  "permissions": [
+    "http://facebook.com/",
+    "tabs"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
