@@ -1,5 +1,5 @@
 class Mood < ActiveRecord::Base
-  OPTIONS = [:happy, :neutral, :mad, :jealous, :frustrated, :angry, :leftout]
+  OPTIONS = [:happy, :neutral, :angry, :jealous, :frustrated, :leftout]
 
   belongs_to :user
   attr_accessible :label, :duration

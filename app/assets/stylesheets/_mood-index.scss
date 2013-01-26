@@ -1,0 +1,69 @@
+section.moods {
+  margin: auto;
+  padding: 2em 0;
+  width: 50%;
+
+  .mood {
+    font-family: "omnes-pro", sans-serif;
+    font-weight: 400;
+
+    figure {
+      background: #dcd0b7;
+      border-radius: 4px;
+      display: table;
+      padding: 20px 10px 20px 20px;
+      width: 100%;
+
+      &.happy span.happy, 
+      &.neutral span.neutral,
+      &.angry span.angry,
+      &.jealous span.jealous,
+      &.frustrated span.frustrated,
+      &.leftout span.leftout {
+        box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .8);
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+      }
+
+
+      span {
+        border-right: 10px solid #dcd0b7;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .8);
+        color: rgba(255, 255, 255, .8);
+        display: table-cell;
+        font-size: 80%;
+        height: 70px;
+        opacity: .2;
+        overflow: hidden;
+        padding-bottom: 15px;
+        text-align: center;
+        vertical-align: bottom;
+        width: 10%;
+
+        &.happy {
+          background: #339e30;
+        }
+
+        &.neutral {
+          background: #ccc;
+        }
+
+        &.angry {
+          background: #d2000a;
+        }
+
+        &.jealous {
+          background: #88a403;
+        }
+
+        &.frustrated {
+          background: #690a4d;
+        }
+
+        &.leftout {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
