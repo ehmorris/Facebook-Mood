@@ -5,7 +5,6 @@
 var Pages = [];
 
 function tab_was_facebook(page) {
-  console.log(page);
   return !!page.url.match(/facebook.com/);
 }
 
