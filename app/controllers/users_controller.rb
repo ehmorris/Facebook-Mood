@@ -2,19 +2,17 @@ class UsersController < ApplicationController
   skip_before_filter :authorize, :only => [:create, :new]
   before_filter :redirect_to_root, :only => [:create, :new], :if => :signed_in?
 
-  def new
-    @user = user_from_params
-    render :template => 'users/new'
-  end
-
   def create
     @user = user_from_params
+
+    puts "FUCK YOU"
 
     if @user.save
       sign_in @user
       redirect_back_or url_after_create
     else
-      render :template => 'users/new'
+      flash_failure_after_create
+      render :action => 'index', :controller => 'application'
     end
   end
 
@@ -26,6 +24,10 @@ class UsersController < ApplicationController
 
   def url_after_create
     '/'
+  end
+
+  def flash_failure_after_create
+    flash.now[:notice] = 'bad email or password'.html_safe
   end
 
   def user_from_params
