@@ -1,11 +1,12 @@
-<h1>Your moods</h1>
+<h1>Your Mood History</h1>
 
 <%= link_to 'temp new mood', new_mood_path %>
 
 <section class="moods">
 <% @moods.each do |mood| %>
   <div class="mood">
-  <span>on <%= mood.created_at.strftime("%b %d, %Y at %I:%M%p") %>, you'd spent <%= mood.duration %> on facebook</span>
+    <span class="meta">on <%= mood.created_at.strftime("%b %d, %Y at %I:%M%p") %>, you'd spent <%= mood.duration %> on facebook</span>
+    <span class="herald">You felt</span>
     <figure class="<%= mood.label %>">
       <% Mood::OPTIONS.each do |mood_option| %>
         <span class="<%= mood_option %>"><%= mood_option %></span>
