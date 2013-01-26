@@ -1,0 +1,38 @@
+hgroup {
+  margin-bottom: 6rem;
+
+  h1 {
+    margin-bottom: 0;
+    font-size: 300%;
+  }
+}
+
+.signin, .signup {
+  background: #dcd0b7;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 2em;
+  max-width: 400px;
+  padding: .5em 2em 2em 2em;
+  width: 50%;
+
+  form {
+    width: 100%;
+
+    input {
+      box-sizing: border-box;
+      display: block;
+      margin-bottom: .5em;
+      padding: .7em;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.signin {
+  background: transparent;
+}

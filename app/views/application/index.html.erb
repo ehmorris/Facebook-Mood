@@ -1,36 +1,24 @@
-<h1>Does facebook make you jealous?</h1>
-<h2>We help you keep track of how facebook makes you feel.</h2>
+<hgroup>
+  <h1>Does facebook make you jealous?</h1>
+  <h2>We help you keep track of how facebook makes you feel</h2>
+</hgroup>
 
-<h2>Sign in</h2>
+<section class="signup">
+  <h2>Sign up!</h2>
+  <%= form_for @user do |form| %>
+    <%= form.text_field :email, :type => 'email', placeholder: 'email' %>
+    <%= form.password_field :password, placeholder: 'password' %>
+    <%= form.submit "Let's Goooooo!" %>
+  <% end %>
+</section>
 
-<%= form_for :session, :url => session_path do |form| %>
-  <div class='text_field'>
-    <%= form.label :email %>
-    <%= form.text_field :email, :type => 'email' %>
-  </div>
-
-  <div class='text_field'>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class='submit_field'>
+<section class="signin">
+  <h2>if you have an account already...</h2>
+  <%= form_for :session, :url => session_path do |form| %>
+    <%= form.text_field :email, :type => 'email', placeholder: 'email' %>
+    <%= form.password_field :password, placeholder: 'password' %>
     <%= form.submit 'Sign in' %>
-  </div>
-<% end %>
+  <% end %>
+</section>
 
-<h2>Sign up</h2>
-
-<%= form_for @user do |form| %>
-  <div class='text_field'>
-    <%= form.label :email %>
-    <%= form.text_field :email, :type => 'email' %>
-  </div>
-
-  <div class='password_field'>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <%= form.submit 'Sign up' %>
-<% end %>
 
