@@ -50,3 +50,18 @@ input[type="submit"], input[type="button"] {
     background: darken(#dcd0b7, 30%);
   }
 }
+
+#flash {
+  background: yellow;
+  box-sizing: border-box;
+  color: darken(yellow, 20%);
+  display: block;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  * {
+    padding: 1em;
+  }
+}
