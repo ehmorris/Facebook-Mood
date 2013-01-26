@@ -48,7 +48,7 @@ chrome.tabs.onRemoved.addListener(function(id) {
   // If facebook gets closed we do stuff.
   if (tab_was_facebook(removed) && past_time_threshold(removed)) {
     var app = 'http://fbhappiness-app.herokuapp.com'
-    chrome.tabs.create({
+    chrome.windows.create({
       'url': app + '/moods/new?duration=' + (now() - removed.created_at)
     });
   }
