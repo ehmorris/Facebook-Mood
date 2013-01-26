@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebook Happiness</title>
+  <%= stylesheet_link_tag "application" %>
+  <script type="text/javascript" src="//use.typekit.net/uog7wen.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
+
+  <%= yield %>
+
+  <footer>
+    <% if signed_in? -%>
+      <%= link_to 'Sign out', sign_out_path, :method => :delete %> | <a href="https://chrome.google.com/webstore/detail/facebook-mood/jinjghhellcpaoljlkoeagjpikoeggaf?hl=en">Download the extension</a>
+    <% end -%>
+  </footer>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-3042841-8']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</body>
+</html>
