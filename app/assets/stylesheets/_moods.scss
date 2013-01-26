@@ -8,6 +8,86 @@ section.moods, section.moods-form-wrapper {
     line-height: 1.4em;
     margin-bottom: 4em;
     text-align: center;
+
+    figure.breakdown {
+      display: block;
+      margin-top: 4em;
+      overflow: visible;
+      text-align: center;
+
+      span {
+        display: inline-block;;
+        font-size: 80%;
+        margin: 0 1em 2em 1em;
+        text-align: center;
+        -webkit-transition: all .2s ease;
+
+        // sample sizes
+        &:nth-child(1):before {
+          -webkit-transform: scale(.5);
+        }
+        &:nth-child(2):before {
+          -webkit-transform: scale(.8);
+        }
+        &:nth-child(3):before {
+          -webkit-transform: scale(.75);
+        }
+        &:nth-child(4):before {
+          -webkit-transform: scale(.2);
+        }
+        &:nth-child(5):before {
+          -webkit-transform: scale(.1);
+        }
+        &:nth-child(6):before {
+          -webkit-transform: scale(.9);
+        }
+        &:nth-child(7):before {
+          -webkit-transform: scale(1);
+        }
+
+        &.leftout {
+          margin-right: 0;
+        }
+
+        &:before {
+          background: #000;
+          border-radius: 100px;
+          content: '';
+          display: block;
+          height: 82px;
+          margin-bottom: .2em;
+          width: 82px;
+        }
+
+        &.happy:before {
+          background: $happy;
+        }
+
+        &.neutral:before {
+          background: $neutral;
+        }
+
+        &.angry:before {
+          background: $angry;
+        }
+
+        &.jealous:before {
+          background: $jealous;
+        }
+
+        &.frustrated:before {
+          background: $frustrated;
+        }
+
+        &.disturbed:before {
+          background: $disturbed;
+        }
+
+        &.leftout:before {
+          background: $leftout;
+        }
+      }
+    }
   }
 
   .intro-explain {
@@ -147,6 +227,11 @@ section.moods, section.moods-form-wrapper {
 
         &:hover {
           -webkit-transform: scale(1.3);
+        }
+
+        &:active {
+          -webkit-transition: all .1s ease;
+          -webkit-transform: scale(.9);
         }
 
         &.leftout {
