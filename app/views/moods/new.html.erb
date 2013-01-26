@@ -3,7 +3,7 @@
 <section class="moods">
 
   <div class="mood-form">
-    <span class="meta">You were on facebook for <%= "%.2f" % (@mood.duration.to_f / 60) %> seconds</span>
+    <span class="meta">You were on facebook for <%= "%.2f" % (@mood.duration.to_f / 60) %> minutes</span>
     <span class="herald">how are you feeling?</span>
     <figure>
       <%= form_for @mood do |f| %>
