@@ -1,6 +1,6 @@
 // Keep an updated record of the users tabs in Pages.
 // Pages is an array of page's, where a page is:
-// {id: int, url: string, duration: int}
+// {id: int, url: string, created_at: int}
 //
 var Pages = [];
 
@@ -12,11 +12,16 @@ function past_time_threshold(page) {
   return true;
 }
 
+// UNIX style time.
+function now() {
+  return Math.round(new Date().getTime() / 1000);
+}
+
 chrome.tabs.onCreated.addListener(function(tab) {
   Pages.push({
     id: tab.id,
     url: tab.url,
-    duration: 0
+    created_at: now()
   });
 });
 
@@ -42,6 +47,9 @@ chrome.tabs.onRemoved.addListener(function(id) {
 
   // If facebook gets closed we do stuff.
   if (tab_was_facebook(removed) && past_time_threshold(removed)) {
-    chrome.tabs.create({'url': 'http://fbhappiness-app.herokuapp.com/'});
+    var app = 'http://fbhappiness-app.herokuapp.com'
+    chrome.tabs.create({
+      'url': app + '/moods/new?duration=' + (now() - removed.created_at)
+    });
   }
 });
