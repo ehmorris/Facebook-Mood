@@ -9,7 +9,7 @@ function tab_was_facebook(page) {
 }
 
 function past_time_threshold(page) {
-  return true;
+  return (now() - page.created_at) > 30;
 }
 
 // UNIX style time.
