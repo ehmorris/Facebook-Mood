@@ -17,13 +17,17 @@ h1 {
   font-size: 240%;
 }
 
+a {
+  color: $titling-color;
+}
+
 footer {
+  font-size: 80%;
   padding: 0 0 4em;
   text-align: center;
 
   a {
     color: $titling-color;
-    font-size: 80%;
     padding-bottom: 1px;
     text-decoration: none;
 
