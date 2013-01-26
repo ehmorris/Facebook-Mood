@@ -29,7 +29,7 @@ class Clearance::SessionsController < ApplicationController
   end
 
   def url_after_create
-    '/'
+    session[:redirect_after_signin_to] || '/'
   end
 
   def url_after_destroy

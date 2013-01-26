@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   def create
     @user = user_from_params
 
-    puts "FUCK YOU"
-
     if @user.save
       sign_in @user
       redirect_back_or url_after_create
@@ -23,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def url_after_create
-    '/'
+    session[:redirect_after_signin_to] || '/'
   end
 
   def flash_failure_after_create
