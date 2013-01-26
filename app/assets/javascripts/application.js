@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('.mood-form form span.option').click(function() {
+    var form_val = $(this).text();
+    $('.mood-form form #mood_label').val(form_val);
+    $('.mood-form form').submit();
+  });
+});

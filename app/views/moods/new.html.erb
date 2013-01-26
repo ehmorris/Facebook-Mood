@@ -1,9 +1,19 @@
 <h1>New Mood Entry</h1>
 
-You were on facebook for <%= @mood.duration %> seconds, how are you feeling?
+<section class="moods">
 
-<%= form_for @mood do |f| %>
-  <%= f.select(:label, Mood::OPTIONS) %>
-  <%= f.hidden_field :duration, :value => @mood.duration %>
-  <%= f.submit 'Submit' %>
-<% end %>
+  <div class="mood-form">
+    <span class="meta">You were on facebook for <%= "%.2f" % (@mood.duration.to_f / 60) %> seconds</span>
+    <span class="herald">how are you feeling?</span>
+    <figure>
+      <%= form_for @mood do |f| %>
+        <% Mood::OPTIONS.each do |mood_option| %>
+          <span href="" class="option <%= mood_option %>"><%= mood_option %></span>
+        <% end %>
+        <%= f.hidden_field :label %>
+        <%= f.hidden_field :duration, :value => @mood.duration %>
+      <% end %>
+    </figure>
+  </div>
+
+</section>
