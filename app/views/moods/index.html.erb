@@ -6,16 +6,14 @@
     <div class="intro-explain">
       <p>Hi! This is where you'll see your mood history once you begin using our extension. If you haven't already, <a href="https://chrome.google.com/webstore/detail/facebook-mood/jinjghhellcpaoljlkoeagjpikoeggaf?hl=en">download it here</a>.</p>
       <p>Once that's done, it'll begin asking you how you feel when you exit facebook, as long as you spent more than 30 seconds on the site.</p>
-      <p>Each mood you enter will show up here on a timeline like this...</p>
+      <p>Each mood you enter will show up here on a timeline.</p>
     </div>
-    <div class="mood">
-      <figure class="happy">
-        <% Mood::OPTIONS.each do |mood_option| %>
-          <span class="<%= mood_option %>"><%= mood_option %></span>
-        <% end %>
-      </figure>
-    </div>
-
+  <% else %>
+    <!--
+    <section class="summary">
+      <p>You've mostly been [mood] this month, and when you're [mood] you usually spend [duration] on facebook</p>
+    </section>
+    -->
   <% end %>
 
   <% @moods.each do |mood| %>
