@@ -3,6 +3,13 @@ section.moods {
   padding: 0 0 2em 0;
   width: 50%;
 
+  .intro-explain {
+    line-height: 1.4em;
+    margin: auto;
+    margin-bottom: 4em;
+    max-width: 400px;
+  }
+
   .mood {
     font-family: "omnes-pro", sans-serif;
     font-weight: 400;
