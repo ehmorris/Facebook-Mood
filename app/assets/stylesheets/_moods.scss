@@ -45,10 +45,6 @@ section.moods, section.moods-form-wrapper {
           -webkit-transform: scale(1);
         }
 
-        &.leftout {
-          margin-right: 0;
-        }
-
         &:before {
           background: #000;
           border-radius: 100px;
@@ -59,33 +55,7 @@ section.moods, section.moods-form-wrapper {
           width: 82px;
         }
 
-        &.happy:before {
-          background: $happy;
-        }
-
-        &.neutral:before {
-          background: $neutral;
-        }
-
-        &.angry:before {
-          background: $angry;
-        }
-
-        &.jealous:before {
-          background: $jealous;
-        }
-
-        &.frustrated:before {
-          background: $frustrated;
-        }
-
-        &.disturbed:before {
-          background: $disturbed;
-        }
-
-        &.leftout:before {
-          background: $leftout;
-        }
+        @include span-before-colors;
       }
     }
   }
@@ -130,7 +100,12 @@ section.moods, section.moods-form-wrapper {
       position: absolute;
       top: 0;
 
-      &.happy, &.neutral {
+      &.excited,
+      &.optimistic,
+      &.important,
+      &.entertained,
+      &.happy,
+      &.neutral {
         right: 70%;
 
         p {
@@ -144,7 +119,13 @@ section.moods, section.moods-form-wrapper {
         }
       }
 
-      &.angry, &.jealous, &.frustrated, &.leftout, &.disturbed {
+      &.angry,
+      &.jealous,
+      &.frustrated,
+      &.leftout,
+      &.anxious,
+      &.disturbed,
+      &.shocked {
         left: 70%;
 
         p {
@@ -170,33 +151,7 @@ section.moods, section.moods-form-wrapper {
         width: 1em;
       }
 
-      &.happy:before {
-        background: $happy;
-      }
-
-      &.neutral:before {
-        background: $neutral;
-      }
-
-      &.angry:before {
-        background: $angry;
-      }
-
-      &.jealous:before {
-        background: $jealous;
-      }
-
-      &.frustrated:before {
-        background: $frustrated;
-      }
-
-      &.disturbed:before {
-        background: $disturbed;
-      }
-
-      &.leftout:before {
-        background: $leftout;
-      }
+      @include span-before-colors;
     }
   }
 
@@ -234,10 +189,6 @@ section.moods, section.moods-form-wrapper {
           -webkit-transform: scale(.9);
         }
 
-        &.leftout {
-          margin-right: 0;
-        }
-
         &:before {
           background: #000;
           border-radius: 100px;
@@ -248,33 +199,7 @@ section.moods, section.moods-form-wrapper {
           width: 82px;
         }
 
-        &.happy:before {
-          background: $happy;
-        }
-
-        &.neutral:before {
-          background: $neutral;
-        }
-
-        &.angry:before {
-          background: $angry;
-        }
-
-        &.jealous:before {
-          background: $jealous;
-        }
-
-        &.frustrated:before {
-          background: $frustrated;
-        }
-
-        &.disturbed:before {
-          background: $disturbed;
-        }
-
-        &.leftout:before {
-          background: $leftout;
-        }
+        @include span-before-colors;
       }
     }
   }

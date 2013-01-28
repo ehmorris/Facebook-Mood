@@ -1,0 +1,53 @@
+@mixin span-before-colors {
+  &.excited:before {
+    background: $excited;
+  }
+
+  &.optimistic:before {
+    background: $optimistic;
+  }
+
+  &.important:before {
+    background: $important;
+  }
+
+  &.entertained:before {
+    background: $entertained;
+  }
+
+  &.happy:before {
+    background: $happy;
+  }
+
+  &.neutral:before {
+    background: $neutral;
+  }
+
+  &.angry:before {
+    background: $angry;
+  }
+
+  &.jealous:before {
+    background: $jealous;
+  }
+
+  &.frustrated:before {
+    background: $frustrated;
+  }
+
+  &.leftout:before {
+    background: $leftout;
+  }
+
+  &.anxious:before {
+    background: $anxious;
+  }
+
+  &.disturbed:before {
+    background: $disturbed;
+  }
+
+  &.shocked:before {
+    background: $shocked;
+  }
+}
