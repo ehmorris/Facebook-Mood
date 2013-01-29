@@ -1,26 +1,55 @@
 // FBMood namespace :)
 var FBMood = {}
 
+/*
+Constants
+*/
+
 // Base URL to rails backend.
 FBMood.APP = 'http://fbmood.herokuapp.com';
 
-// Keep an updated record of the users tabs in pages.
-// pages is an array of page's, where a page is:
-// {id: int, url: string, created_at: int}
-//
+// Time before popup will be prompted.
+FBMood.TIME_THRESHOLD = 30;
+
+/*
+Tab tracking / detection.
+*/
+
+// Data Definition: Page
+// A page is of the form,
+// {id: Integer, url: String, created_at: Integer}
+
+// pages is an array of Pages that are currently on
+// the users screen.
 FBMood.pages = [];
 
-function tab_was_facebook(page) {
+// is_facebook : Page -> Boolean
+// Returns true if the given page is a facebook page.
+function is_facebook(page) {
   return !!page.url.match(/facebook.com/);
 }
 
+// past_time_threshold : Page -> Boolean
+// Return true if it has been longer then the global time
+// threshold since the given page was opened.
+// (pages unlike tabs are considered opened when the domain changes)
 function past_time_threshold(page) {
-  return (now() - page.created_at) > 30;
+  return (now() - page.created_at) > FBMood.TIME_THRESHOLD;
 }
 
-// UNIX style time.
+// now : -> Integer
+// UNIX style time, in seconds.
 function now() {
   return Math.round(new Date().getTime() / 1000);
+}
+
+// prompt_for_mood : Integer
+// Creates a new window with the FBMood webapp
+// on the create new mood entry page given the current duration.
+function prompt_for_mood(duration) {
+  chrome.windows.create({
+    'url': FBMood.APP + '/moods/new?duration=' + duration
+  });
 }
 
 chrome.tabs.onCreated.addListener(function(tab) {
@@ -51,40 +80,41 @@ chrome.tabs.onRemoved.addListener(function(id) {
     }
   }
 
-  // If facebook gets closed we do stuff.
-  if (tab_was_facebook(removed) && past_time_threshold(removed)) {
-    chrome.windows.create({
-      'url': FBMood.APP + '/moods/new?duration=' + (now() - removed.created_at)
-    });
+  // If facebook gets closed prompt for mood.
+  if (is_facebook(removed) && past_time_threshold(removed)) {
+    prompt_for_mood(now() - removed.created_at);
   }
 });
 
-// open help page if extension is new or updated
+/*
+FBMood installation and updating functionality.
+*/
 
-function onInstall() {
+function on_install() {
+  // open help page if extension is new or updated
   chrome.windows.create({
     'url': FBMood.APP
   });
 }
 
-function onUpdate() {
+function on_update() {
   return false;
 }
 
-function getVersion() {
+function get_version() {
   var details = chrome.app.getDetails();
   return details.version;
 }
 
 // Check if the version has changed.
-var currVersion = getVersion();
-var prevVersion = localStorage['version']
-if (currVersion != prevVersion) {
+var current_version  = get_version();
+var previous_version = localStorage['version'];
+if (current_version != previous_version) {
   // Check if we just installed this extension.
-  if (typeof prevVersion == 'undefined') {
-    onInstall();
+  if (typeof previous_version == 'undefined') {
+    on_install();
   } else {
-    onUpdate();
+    on_update();
   }
-  localStorage['version'] = currVersion;
+  localStorage['version'] = current_version;
 }
