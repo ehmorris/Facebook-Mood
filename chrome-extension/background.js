@@ -1,11 +1,14 @@
-// Base URL to rails backend.
-APP = 'http://fbmood.herokuapp.com';
+// FBMood namespace :)
+var FBMood = {}
 
-// Keep an updated record of the users tabs in Pages.
-// Pages is an array of page's, where a page is:
+// Base URL to rails backend.
+FBMood.APP = 'http://fbmood.herokuapp.com';
+
+// Keep an updated record of the users tabs in pages.
+// pages is an array of page's, where a page is:
 // {id: int, url: string, created_at: int}
 //
-var Pages = [];
+FBMood.pages = [];
 
 function tab_was_facebook(page) {
   return !!page.url.match(/facebook.com/);
@@ -21,7 +24,7 @@ function now() {
 }
 
 chrome.tabs.onCreated.addListener(function(tab) {
-  Pages.push({
+  FBMood.pages.push({
     id: tab.id,
     url: tab.url,
     created_at: now()
@@ -29,9 +32,9 @@ chrome.tabs.onCreated.addListener(function(tab) {
 });
 
 chrome.tabs.onUpdated.addListener(function(id) {
-  for (var i = Pages.length - 1; i >= 0; i--) {
-    if (Pages[i].id == id) {
-      var page = Pages[i];
+  for (var i = FBMood.pages.length - 1; i >= 0; i--) {
+    if (FBMood.pages[i].id == id) {
+      var page = FBMood.pages[i];
       chrome.tabs.get(id, function(tab) {
         page.url = tab.url;
       });
@@ -41,17 +44,17 @@ chrome.tabs.onUpdated.addListener(function(id) {
 
 chrome.tabs.onRemoved.addListener(function(id) {
   var removed;
-  for (var i = Pages.length - 1; i >= 0; i--) {
-    if (Pages[i].id == id) {
-      removed = Pages[i];
-      Pages.splice(i, 1);
+  for (var i = FBMood.pages.length - 1; i >= 0; i--) {
+    if (FBMood.pages[i].id == id) {
+      removed = FBMood.pages[i];
+      FBMood.pages.splice(i, 1);
     }
   }
 
   // If facebook gets closed we do stuff.
   if (tab_was_facebook(removed) && past_time_threshold(removed)) {
     chrome.windows.create({
-      'url': APP + '/moods/new?duration=' + (now() - removed.created_at)
+      'url': FBMood.APP + '/moods/new?duration=' + (now() - removed.created_at)
     });
   }
 });
@@ -60,7 +63,7 @@ chrome.tabs.onRemoved.addListener(function(id) {
 
 function onInstall() {
   chrome.windows.create({
-    'url': APP
+    'url': FBMood.APP
   });
 }
 
