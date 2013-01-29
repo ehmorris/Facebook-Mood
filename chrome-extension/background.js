@@ -1,3 +1,6 @@
+// Base URL to rails backend.
+APP = 'http://fbmood.herokuapp.com';
+
 // Keep an updated record of the users tabs in Pages.
 // Pages is an array of page's, where a page is:
 // {id: int, url: string, created_at: int}
@@ -47,9 +50,8 @@ chrome.tabs.onRemoved.addListener(function(id) {
 
   // If facebook gets closed we do stuff.
   if (tab_was_facebook(removed) && past_time_threshold(removed)) {
-    var app = 'http://fbmood.herokuapp.com'
     chrome.windows.create({
-      'url': app + '/moods/new?duration=' + (now() - removed.created_at)
+      'url': APP + '/moods/new?duration=' + (now() - removed.created_at)
     });
   }
 });
@@ -58,7 +60,7 @@ chrome.tabs.onRemoved.addListener(function(id) {
 
 function onInstall() {
   chrome.windows.create({
-    'url': 'http://fbmood.herokuapp.com'
+    'url': APP
   });
 }
 
