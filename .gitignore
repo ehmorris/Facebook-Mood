@@ -1,20 +1,9 @@
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-.rspec
-.rvmrc
+# Ignore bundler config
 /.bundle
-/vendor/bundle
-/log/*
-/tmp/*
+
+# Ignore the default SQLite database.
 /db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-pickle-email-*.html
-.project
-log/
-db/
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
