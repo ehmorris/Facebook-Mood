@@ -26,7 +26,7 @@ FBMood.pages = [];
 // is_facebook : Page -> Boolean
 // Returns true if the given page is a facebook page.
 function is_facebook(page) {
-  return !!page.url.match(/facebook.com/);
+  return !!page.url.match(/^(http|https):\/\/www.facebook.com/);
 }
 
 // past_time_threshold : Page -> Boolean
