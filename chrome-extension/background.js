@@ -93,7 +93,7 @@ FBMood installation and updating functionality.
 function on_install() {
   // open help page if extension is new or updated
   chrome.windows.create({
-    'url': FBMood.APP
+    'url': FBMood.APP + '/moods'
   });
 }
 
