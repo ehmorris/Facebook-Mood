@@ -4,15 +4,23 @@
   "description": "Analyzes how you react to facebook on average",
   "homepage_url": "http://fbmood.herokuapp.com/",
   "manifest_version": 2,
+  "permissions": ["tabs"],
+
   "icons": {
-    "16":  "icon-16.png",
-    "48":  "icon-48.png",
-    "128": "icon-128.png"
+    "16":  "images/icon-16.png",
+    "48":  "images/icon-48.png",
+    "128": "images/icon-128.png"
   },
 
   "background": {
     "persistent": true,
-    "scripts": ["background.js"]
+    "scripts": [
+      "lib/background.js"
+    ]
   },
-  "permissions": ["tabs"]
+
+  "browser_action": {
+    "default_title": "Test FBMood",
+    "default_popup": "test/popup.html"
+  }
 }
