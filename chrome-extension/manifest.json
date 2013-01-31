@@ -20,6 +20,7 @@
   },
 
   "browser_action": {
+    "default_icon": "images/bug-16.gif",
     "default_title": "Test FBMood",
     "default_popup": "test/popup.html"
   }
