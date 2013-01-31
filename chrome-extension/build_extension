@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+#
+# Builds a client version of the extension.
+#
+
+class Builder
+
+  attr_accessor :path, :exclude
+
+  def initialize(path, args = {})
+    @path    = path
+    @exclude = args[:exclude]
+  end
+
+  def construct
+    Dir.chdir File.dirname(__FILE__)
+    puts Dir['*']
+  end
+
+end
+
+bob = Builder.new 'chrome-extension', exclude: ['test', 'vendor/qunit.js',
+  'vendor/qunit.css', 'images/bug-16.gif']
+
+bob.construct
