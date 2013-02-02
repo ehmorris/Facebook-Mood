@@ -1,46 +1,36 @@
-hgroup {
-  margin-bottom: 6rem;
-
-  h1 {
-    margin-bottom: 0;
-    font-size: 300%;
-  }
-}
-
-.signin, .signup {
-  background: #dcd0b7;
-  border-radius: 4px;
-  margin: auto;
-  margin-top: 2em;
-  max-width: 400px;
-  padding: .5em 2em 2em 2em;
+.promotion {
+  background: lighten($base-color, 5%);
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 50%;
 
-  form {
-    width: 100%;
-
-    .field_with_errors {
-      margin-bottom: .5em;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    input {
-      box-sizing: border-box;
-      display: block;
-      margin-bottom: .5em;
-      padding: .7em;
-      width: 100%;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+  img {
+    border: 1px solid lighten($titling-color, 20%);
+    display: inline-block;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    width: 90%;
   }
 }
 
-.signin {
-  background: transparent;
+aside {
+  background: lighten($base-color, 5%);
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  padding-top: 5%;
+  position: fixed;
+  top: 0;
+  width: 50%;
+
+  header.home {
+    margin: auto;
+    max-width: 450px;
+
+    p {
+      line-height: 1.4em;
+      text-align: center;
+    }
+  }
 }
